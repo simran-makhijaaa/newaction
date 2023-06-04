@@ -12,14 +12,14 @@ jobs:
   hi:
     runs-on: ubuntu-latest
     steps:
-      - name: hello world
+      - name: hi simran world
         run: echo "hello world"
         shell: bash
 
   bye:
     runs-on: ubuntu-latest
     steps:
-      - name: goodbye world
+      - name: bye simran world
         run: echo "goodbye world"
         shell: bash
         

@@ -43,7 +43,7 @@ jobs:
         
   by:
     runs-on: ubuntu-latest
-    needs: bye
+    needs: [goodbye, bye]
     steps:
       - name: by world
         run: echo "by world"

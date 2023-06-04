@@ -19,6 +19,7 @@ jobs:
 
   goodbye:
     runs-on: ubuntu-latest
+    needs: hello
     steps:
       - name: goodbye world
         run: echo "goodbye world"

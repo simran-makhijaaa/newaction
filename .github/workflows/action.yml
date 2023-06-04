@@ -34,7 +34,6 @@ jobs:
         
   hi:
     runs-on: ubuntu-latest
-    needs: hello
     steps:
       - name: hi world
         run: echo "hi world"

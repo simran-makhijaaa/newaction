@@ -24,4 +24,28 @@ jobs:
       - name: goodbye world
         run: echo "goodbye world"
         shell: bash
+    
+  bye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: bye world
+        run: echo "bye world"
+        shell: bash
+        
+  hi:
+    runs-on: ubuntu-latest
+    needs: hello
+    steps:
+      - name: hi world
+        run: echo "hi world"
+        shell: bash
+        
+        
+  by:
+    runs-on: ubuntu-latest
+    needs: bye
+    steps:
+      - name: by world
+        run: echo "by world"
+        shell: bash
         

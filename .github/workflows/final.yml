@@ -1,5 +1,5 @@
 name: simran world workflow
-on:hi
+on:
   push:
     branches:
       - main

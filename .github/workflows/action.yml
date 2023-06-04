@@ -1,13 +1,26 @@
-name: learn-github-actions-with-simran
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+name: Hello world workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
-  check-bats-version:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+      - uses: _actions/checkout@v2
+      - name: hello world
+        run: echo "hello world"
+        shell: bash
+
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world
+        run: echo "goodbye world"
+        shell: bash
+        

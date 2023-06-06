@@ -47,3 +47,10 @@ jobs:
         run: echo "by world"
         shell: bash
         
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test world
+        run: echo "test world"
+        shell: bash
+        

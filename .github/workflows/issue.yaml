@@ -1,14 +1,35 @@
-name: Create a comment on new issues
+# name: Create a comment on new issues
 
+# on:
+#   issues:
+#     types: [opened]
+
+# jobs:
+#   comment-with-action:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: "dump github context"
+#         run: echo '${{ toJSON(github.event) }}' | jq
+#         shell: bash
+ 
+name: Label issues
 on:
   issues:
-    types: [opened]
-
+    types:
+      - reopened
+      - opened
 jobs:
-  comment-with-action:
+  label_issues:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
-      - name: "dump github context"
-        run: echo '${{ toJSON(github.event) }}' | jq
-        shell: bash
- 
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["fixThisIssue"]
+            })
